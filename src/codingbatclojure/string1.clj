@@ -1,4 +1,6 @@
 (ns codingbatclojure.string1)
+(use '[clojure.string :as str])
+
 
 (defn helloName [name]
     (println "Hello name")
@@ -24,7 +26,6 @@
 (defn firstHalf [word]
     (println "First half")
     (def half (/ (count word) 2))
-    ; (println (subs word 0 half))
     (subs word 0 half)
 )
 
@@ -64,9 +65,22 @@
         seq [a b]
     ))
     
-    (println words (reverse words))
+    (println words (clojure.core/reverse words))
 )
 
 (makeAbba "Hi" "There")
 (makeAbba "Hello" "Alice")
 (makeAbba "What" "Up")
+
+(defn seeColor [s]
+    (println "see color")
+    (cond
+        (str/starts-with? s "red") (println "red")
+        (str/starts-with? s "blue") (println "blue")
+        :else (println "")
+    )
+)
+
+(seeColor "redxx")
+(seeColor "xxred")
+(seeColor "blueTimes")

@@ -66,3 +66,41 @@
 (sum2 (seq [1 1 1 1]))
 (sum2 (seq [4 5 6]))
 (sum2 (seq []))
+
+(defn no23 [numbers]
+    (println "no 2 3")
+    (def has23 (or (.contains numbers 2) (.contains numbers 3) ))
+    (if (true? has23)
+        (println "false")
+        (println "true")
+    )
+)
+
+(no23 (seq [4 5]))
+(no23 (seq [4 2]))
+(no23 (seq [3 5]))
+
+(defn makePi []
+    (println "make pi")
+    (println (seq [3 1 4]))
+)
+
+(makePi)
+
+(defn frontPiece [numbers]
+    (println "Front piece")
+    (println (take 2 numbers))
+)
+
+(frontPiece (seq [1 2 3]))
+(frontPiece (seq [1 2]))
+(frontPiece (seq [1]))
+
+(defn plusTwo [a b]
+    (println "plus two")
+    (println (concat a b))
+)
+
+(plusTwo (seq [1 2]) (seq [3 4]))
+(plusTwo (seq [4 4]) (seq [2 2]))
+(plusTwo (seq [9 2]) (seq [3 4]))
