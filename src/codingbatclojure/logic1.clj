@@ -105,3 +105,83 @@
 (alarmClock 5 false) ;7
 (alarmClock 0 false) ;10
 (alarmClock 0 true) ;off
+
+(defn in1to10 [n outsideMode]
+    (println "In 1 to 10")
+
+    (if (false? outsideMode)
+        (
+            if (and (>= n 1) (<= n 10))
+                (println "true")
+                (println "false")
+        )
+        (
+            if (or (< n 1) (> n 10))
+                (println "true")
+                (println "false")
+        )
+    )
+)
+
+(in1to10 5 false)
+(in1to10 11 false)
+(in1to10 11 true)
+
+(defn answerCell [isMorning isMom isAsleep]
+    (println "Answer cell")
+    (cond
+        (true? isAsleep) (println "false")
+        (and (true? isMorning) (true? isMom)) (println "true")
+        (and (true? isMorning) (false? isMom)) (println "false")
+        :else (println "true")
+    )
+)
+
+(answerCell false false false)
+(answerCell false false true)
+(answerCell true false false)
+
+(defn sortaSum [a b]
+    (println "sortaSum")
+    (def result (+ a b))
+    (if (and (>= result 10) (<= result 19))
+        (println "20")
+        (println result)
+    )
+)
+
+(sortaSum 3 4)
+(sortaSum 9 4)
+(sortaSum 10 11)
+
+(defn sumLimit [a b]
+    (println "sum limit")
+    (def result (+ a b))
+    (def lengthA (count (str a)))
+    (def lengthResult (count (str result)))
+    (if (<= lengthResult lengthA)
+        (println result)
+        (println a)
+    )
+)
+
+(sumLimit 2 3)
+(sumLimit 8 3)
+(sumLimit 8 1)
+
+(defn teenSum [a b]
+    (println "teen sum")
+    (def result (+ a b))
+    (if 
+        (or 
+            (and (>= a 13) (<= a 19)) 
+            (and (>= b 13) (<= b 19))
+        )
+            (println "19")
+            (println result)
+    )
+)
+
+(teenSum 3 4)
+(teenSum 10 13)
+(teenSum 13 2)
