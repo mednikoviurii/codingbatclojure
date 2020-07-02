@@ -1,5 +1,7 @@
 (ns codingbatclojure.warmup1)
 
+(use '[clojure.string :as s])
+
 (defn sleepin [weekday vacation]
     (println "\nSleeping day")
     (if (or (not weekday) vacation)
@@ -131,3 +133,67 @@
 (close10 8 13)
 (close10 13 8)
 (close10 13 7)
+
+(defn notString [str]
+    (println "Not string")
+    (def startWith (s/includes? str "not"))
+    (if (true? startWith)
+        (println str)
+        (println "not" str)
+    )
+)
+
+(notString "candy")
+(notString "x")
+(notString "not bad")
+
+(defn intMax [a b c]
+    (println "Int max")
+    (def value (max a b c))
+    (println value)
+)
+
+(intMax 1 2 3)
+(intMax 1 3 2)
+(intMax 5 3 1)
+
+(defn icyHot [temp1 temp2]
+    (println "Icy hot")
+    (if (
+        or (and (< temp1 0) (> temp2 100)) 
+            (and (> temp1 100) (< temp2 0))
+    )
+        (println "true")
+        (println "false")
+    )
+)
+
+(icyHot 120 -1)
+(icyHot -1 120)
+(icyHot 2 120)
+
+(defn front3 [input]
+    (println "Front 3")
+    (def str (subs input 0 3))
+    (println (s/join (repeat 3 str)))
+)
+
+(front3 "Java")
+(front3 "Chocolate")
+(front3 "abc")
+
+(defn in1020 [a b]
+    (println "In 10 20")
+    (if (
+            or 
+                (and (>= a 10) (<= a 20)) 
+                (and (>= b 10) (<= b 20))
+        )
+        (println "true")
+        (println "false")
+    )
+)
+
+(in1020 12 99)
+(in1020 21 12)
+(in1020 8 99)
